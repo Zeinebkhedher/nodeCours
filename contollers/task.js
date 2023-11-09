@@ -80,7 +80,7 @@ const updateTask = (req, res) => {
         message: "Problème d'exécution de la mise à jour",
       });
     });
-};
+}
 
 
 const deleteTask = (req, res) => {

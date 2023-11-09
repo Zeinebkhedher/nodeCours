@@ -60,29 +60,26 @@ const getBookById = (req,res) => {
 }
 
 const updateBook = (req,res) => {
-    Book.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true }).then(
-        (book) => {
-          if (!book) {
-            res.status(404)({
-              message: "Objet non trouvé",
-            });
-          } else
-            res
-              .status(200)
-              .json({
-                model: book,
-                message: "Objet modifié",
-              })
-              .catch((error) => {
-                res.status(400).json({
-                  error: error.message,
-                  message: "problème d'extraction ",
-                });
-              });
+    Book.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true })
+      .then((book) => {
+        if (!book) {
+          return res.status(404).json({
+            message: "book non trouvé",
+          });
+        } else {
+          return res.status(200).json({
+            model: book,
+            message: "book modifié",
+          });
         }
-      );
-      res.send(req.body);
-}
+      })
+      .catch((error) => {
+        return res.status(400).json({
+          error: error.message,
+          message: "Problème d'exécution de la mise à jour",
+        });
+      });
+  };
 
 const deleteBook = (req, res) => {
     Book.deleteOne({_id : req.params.id})
