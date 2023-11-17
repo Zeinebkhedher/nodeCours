@@ -20,19 +20,7 @@ module.exports.loggedMiddleware = (req, res, next) => {
 
 module.exports.updateMiddlware = (req, res, next) =>{
  /*
- User.findOne({_id: userId}).then ((response)=>{
-  if (response) {
-    req.auth= {
-      userId: userId,
-      role : response.role 
-
-    }next()
-    else {
-      res.status(401).json(error:"user doesn't exist")
-    }
-  }
-
- })
+ 
  .catch ((error)=>{
   res.status(500).json({error: error.message})
  })
