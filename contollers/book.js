@@ -79,7 +79,7 @@ const updateBook = (req,res) => {
           message: "Problème d'exécution de la mise à jour",
         });
       });
-  };
+  }
 
 const deleteBook = (req, res) => {
     Book.deleteOne({_id : req.params.id})
