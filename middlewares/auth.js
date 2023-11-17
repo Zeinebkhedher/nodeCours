@@ -18,7 +18,7 @@ module.exports.loggedMiddleware = (req, res, next) => {
 
 module.exports.updateMiddlware = (req, res, next) =>{
  /*
- User.findOne({_id: userId}).then ((response)=>{
+ Users.findOne({_id: userId}).then ((response)=>{
   if (response) {
     req.auth= {
       userId: userId,
