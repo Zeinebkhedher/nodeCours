@@ -1,13 +1,15 @@
 const User = require ("../models/user")
 const jwt = require ("jsonwebtoken")
 const bcrypt = require ("bcrypt")
-
+const {authSchema} = require("../validations/auth")
 
 exports.signup = (req,res,next) => {
     console.log(req.body)
     bcrypt
     .hash(req.body.password, 10)
     .then((hash) => {
+        const {email,password} = req.body
+
         const user = new User({
             email: req.body.email,
             password : hash,
