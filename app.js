@@ -3,10 +3,12 @@ const express = require("express")
 const app = express()
 const mongoose = require("mongoose")
 
+//Routers 
 const taskRouters = require ("./routers/task")
 const bookRouters = require ("./routers/book")
 const userRouter = require("./routers/user")
 const authorRouter = require("./routers/author")
+
 //mongoose connection
 mongoose.connect("mongodb://127.0.0.1:27017/test",
 {useNewUrlParser : true,useUnifiedTopology : true})
